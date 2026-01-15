@@ -25,14 +25,14 @@ A modern and responsive **Student Management System** dashboard. This project fo
 ├── MANAGEMENT SYSTEM/ 
 ├── js/                  # Source files (main logic & styles)
 │   ├── script.js        # JavaScript modules
-    ├── etudiants.js     # 
-    ├── constants.js     # API
-│   └── .gitignore       # File git ignore  
+    ├── etudiants.js     # Fullstack-App-Root
+    ├── constants.js     # Student-Management-API
+│   └── .gitignore       # File git ignore  g
 ├── node_modules         # Tailwind CSS configuration
 ├── etudiants.json       # json file 
-├── index.html           # 
+├── index.html           # Web Application Root
 ├── package.json         # Project metadata and dependencies
-├── package-lock.json    #
+├── package-lock.json    # Node Modules Config
 └── README.md            # Project documentation
 
 ```
