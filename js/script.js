@@ -4,12 +4,24 @@ Etudiant.MAX_NOTE = 20
 
 //console.log(Etudiant.allEtudiants())
 
-let filterBy = 'id'
+let filterBySettings = {
+    'column' : 'date',
+    'desc' : true
+}
 
 const displayEtudiants = async function() {
     return Etudiant.allEtudiants().then(function(response){
         console.log(response)
-        response.sort((a,b) => a['id']-b['id'])
+        // sorting by id
+        response.sort((a,b) => {
+            console.log(b[filterBySettings.column])
+            if (filterBySettings.desc) {
+                return b[filterBySettings.column].localeCompare(a[filterBySettings.column])
+            }
+            return a[filterBySettings.column].localeCompare(b[filterBySettings.column])    
+        })
+        // Mapping Objects to Classes.
+        // .map kajibe data men response 
         return response.map((data) =>{
             //console.log(etudiant)
             //distracturing
