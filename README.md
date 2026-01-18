@@ -27,7 +27,7 @@ A modern and responsive **Student Management System** dashboard. This project fo
 │   ├── script.js        # JavaScript modules
     ├── etudiants.js     # Fullstack-App-Root
     ├── constants.js     # Student-Management-API
-│   └── .gitignore       # File git ignore  g
+│   └── .gitignore       # File git ignoregit 
 ├── node_modules         # Tailwind CSS configuration
 ├── etudiants.json       # json file 
 ├── index.html           # Web Application Root
@@ -46,7 +46,7 @@ cd Management-System-For-Student
 
 ```
 ### 2. Install Dependencies
-``` 
+``` bash
 npm install
 ```
 ### 2. Setup JSON Server (The Database)
