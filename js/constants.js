@@ -1,1 +1,1 @@
-export  const ENDPOINT = 'http://localhost:3000/etudiants' // dert hadi parametreable bach ila we93 chi mochkil fe link kanbdelou ghir men hana 
+export  const ENDPOINT = 'http://localhost:3001/etudiants' // dert hadi parametreable bach ila we93 chi mochkil fe link kanbdelou ghir men hana 
