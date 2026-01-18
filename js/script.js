@@ -9,10 +9,7 @@ let filterBy = 'id'
 const displayEtudiants = async function() {
     return Etudiant.allEtudiants().then(function(response){
         console.log(response)
-        response.sort((a,b) => {
-            return a['id']-b['id']
-        })
-
+        response.sort((a,b) => a['id']-b['id'])
         return response.map((data) =>{
             //console.log(etudiant)
             //distracturing
