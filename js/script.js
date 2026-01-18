@@ -5,16 +5,15 @@ Etudiant.MAX_NOTE = 20
 //console.log(Etudiant.allEtudiants())
 
 let filterBySettings = {
-    'column' : 'date',
+    'column' : 'note',
     'desc' : true
 }
 
 const displayEtudiants = async function() {
     return Etudiant.allEtudiants().then(function(response){
-        console.log(response)
         // sorting by id
+        console.log(response)
         response.sort((a,b) => {
-            console.log(b[filterBySettings.column])
             if (filterBySettings.desc) {
                 return b[filterBySettings.column].localeCompare(a[filterBySettings.column])
             }
