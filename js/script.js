@@ -10,7 +10,7 @@ const displayEtudiants = async function() {
     return Etudiant.allEtudiants().then(function(response){
         console.log(response)
         response.sort((a,b) => {
-            return (a['id']-b['id'])
+            return a['id']-b['id']
         })
 
         return response.map((data) =>{
@@ -82,12 +82,5 @@ const init = function(){
 
 }
 renderEtudiants()
-
-
-
-
-
-// add function and deleted etudiants
-
 
 
