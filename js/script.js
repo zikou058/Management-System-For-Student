@@ -4,9 +4,15 @@ Etudiant.MAX_NOTE = 20
 
 //console.log(Etudiant.allEtudiants())
 
+let filterBy = 'id'
+
 const displayEtudiants = async function() {
     return Etudiant.allEtudiants().then(function(response){
-        //console.log(response)
+        console.log(response)
+        response.sort((a,b) => {
+            return (a['id']-b['id'])
+        })
+
         return response.map((data) =>{
             //console.log(etudiant)
             //distracturing
@@ -58,8 +64,8 @@ const renderEtudiants = function(){
 }
 //this's pointeur ka pointe sur HTML btn : 
 const init = function(){
-    const redbtn = document.getElementById('refresh')
-    redbtn.addEventListener('click',() =>{
+    const refrechButton = document.getElementById('refresh')
+    refrechButton.addEventListener('click',() =>{
         window.refreshBtn()
     })
     const deleteButton = document.querySelectorAll('.delete')
