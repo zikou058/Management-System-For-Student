@@ -5,19 +5,30 @@ Etudiant.MAX_NOTE = 20
 //console.log(Etudiant.allEtudiants())
 
 let filterBySettings = {
-    'column' : 'note',
-    'desc' : true
+    'column' : 'name',
+    'desc' :false
 }
 
 const displayEtudiants = async function() {
     return Etudiant.allEtudiants().then(function(response){
-        // sorting by id
+        // sorting by 
         console.log(response)
         response.sort((a,b) => {
+                // sorting by string : 
             if (filterBySettings.desc) {
                 return b[filterBySettings.column].localeCompare(a[filterBySettings.column])
             }
-            return a[filterBySettings.column].localeCompare(b[filterBySettings.column])    
+            return a[filterBySettings.column].localeCompare(b[filterBySettings.column]) 
+            
+                // sorting by number :
+
+            const number = typeof a === 'number' 
+            if (number) {
+                if (filterBySettings.desc) {
+                    return b[filterBySettings.column] - a[filterBySettings.column]
+                }
+                return a[filterBySettings.column] - b[filterBySettings.column]
+            }
         })
         // Mapping Objects to Classes.
         // .map kajibe data men response 
@@ -87,8 +98,20 @@ const init = function(){
     addfnt.addEventListener('click' ,(event) => {
         addEtudiant(event)
     })
-
 }
+window.rederSort = (column) => {
+    if (filterBySettings.column === column){
+        const element = document.querySelectorAll('.sort-' +column)
+        console.log(element)
+        return `<button ${filterBySettings.desc ? '&darr;':'&uarr'}></button>`
+        //console.log(element.innerHTML += `<button>${filterBySettings.desc ? '&darr;' : '&uarr'}</button>`)
+    }
+}
+rederSort('id')
+rederSort('name')
+rederSort('age')
+rederSort('note')
+
 renderEtudiants()
 
 
