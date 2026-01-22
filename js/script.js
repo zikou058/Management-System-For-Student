@@ -101,9 +101,9 @@ const init = function(){
 }
 window.rederSort = (column) => {
     if (filterBySettings.column === column){
-        const element = document.querySelectorAll('.sort-' +column)
+        const element = document.getElementById('sort-id')
         console.log(element)
-        return `<button ${filterBySettings.desc ? '&darr;':'&uarr'}></button>`
+        //console.log(element.innerHTML += `<button ${filterBySettings.desc ? '&darr;':'&uarr'}></button>`)
         //console.log(element.innerHTML += `<button>${filterBySettings.desc ? '&darr;' : '&uarr'}</button>`)
     }
 }
