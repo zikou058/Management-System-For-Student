@@ -98,14 +98,11 @@ const init = function(){
     addfnt.addEventListener('click' ,(event) => {
         addEtudiant(event)
     })
+    const elements = document.querySelectorAll('.sort-id, .sort-name, .sort-age, .sort-note')
+    
 }
 window.rederSort = (column) => {
-    if (filterBySettings.column === column){
-        const element = document.getElementById('sort-id')
-        console.log(element)
-        //console.log(element.innerHTML += `<button ${filterBySettings.desc ? '&darr;':'&uarr'}></button>`)
-        //console.log(element.innerHTML += `<button>${filterBySettings.desc ? '&darr;' : '&uarr'}</button>`)
-    }
+    console.log(element.innerHTML += `<button ${filterBySettings.desc?'&darr;' : '&uarr;'}></button>`)
 }
 rederSort('id')
 rederSort('name')
