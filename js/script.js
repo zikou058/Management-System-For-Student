@@ -5,7 +5,7 @@ Etudiant.MAX_NOTE = 20
 //console.log(Etudiant.allEtudiants())
 
 let filterBySettings = {
-    'column' : 'name',
+    'column' : 'id',
     'desc' :true
 }
 
@@ -14,14 +14,13 @@ const displayEtudiants = async function() {
         // sorting by 
         console.log(response)
         response.sort((a,b) => {
-                // sorting by string : 
+            // sorting by string : 
             if (filterBySettings.desc) {
                 return b[filterBySettings.column].localeCompare(a[filterBySettings.column])
             }
             return a[filterBySettings.column].localeCompare(b[filterBySettings.column]) 
             
-                // sorting by number :
-
+            // sorting by number :
             const number = typeof a[filterBySettings.column] === 'number' 
             if (number) {
                 if (filterBySettings.desc) {
@@ -103,15 +102,22 @@ const init = function(){
 
 window.rederSort = (column) => {
    if (filterBySettings.column === column) {
-    const element = document.querySelectorAll('.sort-'+column)
-    const temp = element.innerHTML += `<button class="py-1 px-1">${filterBySettings.desc ? '&darr;':'&uarr;'}</button>`; 
-    console.log(temp)
+    const element = document.querySelector('.sort-'+column) 
+    console.log(element.innerHTML += `<button class="py-1 px-1 ml-2 text-sm text-black bg-red-400 rounded-sm" onClick='ChangeSort()' >${filterBySettings.desc ? '↓':'↑'}</button>`)
    }
 }
 rederSort('id')
 rederSort('name')
 rederSort('age')
 rederSort('note')
+window.ChangeSort = () => {
+    if (filterBySettings.desc === true) {
+     filterBySettings.desc = false  
+    }
+    else
+        filterBySettings.desc = true
+    renderEtudiants()
+}
 
 renderEtudiants()
 
