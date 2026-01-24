@@ -22,7 +22,7 @@ const displayEtudiants = async function() {
             
                 // sorting by number :
 
-            const number = typeof a === 'number' 
+            const number = typeof a[filterBySettings.column] === 'number' 
             if (number) {
                 if (filterBySettings.desc) {
                     return b[filterBySettings.column] - a[filterBySettings.column]
@@ -103,9 +103,9 @@ const init = function(){
 
 window.rederSort = (column) => {
    if (filterBySettings.column === column) {
-        const element = document.querySelectorAll('.sort-'+column)
-        //console.log(element)
-        console.log(element.innerHTML += `<td><button class="py-1 px-1" ${filterBySettings.desc?'&darr;':'&uarr;'}></button></td>`)
+    const element = document.querySelectorAll('.sort-'+column)
+    const temp = element.innerHTML += `<button class="py-1 px-1">${filterBySettings.desc ? '&darr;':'&uarr;'}</button>`; 
+    console.log(temp)
    }
 }
 rederSort('id')
