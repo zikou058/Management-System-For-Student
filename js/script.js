@@ -5,7 +5,7 @@ Etudiant.MAX_NOTE = 20
 //console.log(Etudiant.allEtudiants())
 
 let filterBySettings = {
-    'column' : 'name',
+    'column' : 'id',
     'desc' :false
 }
 
@@ -98,11 +98,12 @@ const init = function(){
     addfnt.addEventListener('click' ,(event) => {
         addEtudiant(event)
     })
-    const elements = document.querySelectorAll('.sort-id, .sort-name, .sort-age, .sort-note')
-    
+    //const elements = document.querySelectorAll('.sort-id, .sort-name, .sort-age, .sort-note')
 }
+
 window.rederSort = (column) => {
-    console.log(element.innerHTML += `<button ${filterBySettings.desc?'&darr;' : '&uarr;'}></button>`)
+    const elements = document.querySelectorAll('.sort-id, .sort-name, .sort-age, .sort-note'+column)
+    console.log(elements.innerHTML += `<button ${filterBySettings.desc?'&darr;' : '&uarr;'}></button>`)
 }
 rederSort('id')
 rederSort('name')
