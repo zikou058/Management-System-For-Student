@@ -97,13 +97,19 @@ const init = function(){
     addfnt.addEventListener('click' ,(event) => {
         addEtudiant(event)
     })
-    //const elements = document.querySelectorAll('.sort-id, .sort-name, .sort-age, .sort-note')
+    const sortelement = document.querySelectorAll('.sort-element')
+    console.log(sortelement)
+    sortelement.forEach((button) =>{
+        button.addEventListener('click',() => {
+            filterBySettings.column = button.dataset.column 
+            rederSort(filterBySettings.column)
+        })
+    })
 }
-
 window.rederSort = (column) => {
-   if (filterBySettings.column === column) {
-    const element = document.querySelector('.sort-'+column) 
-    console.log(element.innerHTML += `<button class="py-1 px-1 ml-2 text-sm text-black bg-red-400 rounded-sm" onClick='ChangeSort()' >${filterBySettings.desc ? '↓':'↑'}</button>`)
+   if (filterBySettings.column === column) {  
+    const element = document.querySelector('.sort-'+column)
+    element.innerHTML = `<button class="py-1 px-1 ml-2 text-sm text-black bg-red-400 rounded-sm" onClick='ChangeSort()' >${filterBySettings.desc ?'↓':'↑'}</button>`
    }
 }
 rederSort('id')
@@ -117,6 +123,7 @@ window.ChangeSort = () => {
     else
         filterBySettings.desc = true
     renderEtudiants()
+    rederSort(filterBySettings.column) //hadi hiya li ka tghere li mn decroissant l' croissant
 }
 
 renderEtudiants()
