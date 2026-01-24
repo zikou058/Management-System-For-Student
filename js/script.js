@@ -5,8 +5,8 @@ Etudiant.MAX_NOTE = 20
 //console.log(Etudiant.allEtudiants())
 
 let filterBySettings = {
-    'column' : 'id',
-    'desc' :false
+    'column' : 'name',
+    'desc' :true
 }
 
 const displayEtudiants = async function() {
@@ -102,8 +102,11 @@ const init = function(){
 }
 
 window.rederSort = (column) => {
-    const elements = document.querySelectorAll('.sort-id, .sort-name, .sort-age, .sort-note'+column)
-    console.log(elements.innerHTML += `<button ${filterBySettings.desc?'&darr;' : '&uarr;'}></button>`)
+   if (filterBySettings.column === column) {
+        const element = document.querySelectorAll('.sort-'+column)
+        //console.log(element)
+        console.log(element.innerHTML += `<td><button class="py-1 px-1" ${filterBySettings.desc?'&darr;':'&uarr;'}></button></td>`)
+   }
 }
 rederSort('id')
 rederSort('name')
