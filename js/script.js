@@ -3,7 +3,8 @@ import Etudiant from "./etudiants.js";
 Etudiant.MAX_NOTE = 20
 
 //console.log(Etudiant.allEtudiants())
-let isLoad = false;
+let isLoad = true;
+
 let filterBySettings = {
     'column' : 'id',
     'desc' :true
@@ -80,8 +81,8 @@ const renderEtudiants = function(){
             init()// to reinitialize the delete button event listener 
             if (isLoad) {
                 init()
-                isLoad = true 
             }
+            isLoad = false; 
         })
 }
 //this's pointeur ka pointe sur HTML btn : 
@@ -111,11 +112,10 @@ const init = function(){
         })
     })
 }
-window.rederSort = (column) => {
+window.rederSort = (column) => {    //const sortelement = document.querySelectorAll('.sort-'+column)
    if (filterBySettings.column === column) {  
     const element = document.querySelector('.sort-'+column)
     element.innerHTML = `<button class="py-1 px-1 ml-2 text-sm text-black" >${filterBySettings.desc ?'↓':'↑'}</button>`
-    //console.log(element)
     }
 }
 rederSort('id')
