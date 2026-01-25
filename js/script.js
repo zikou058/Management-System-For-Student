@@ -5,7 +5,7 @@ Etudiant.MAX_NOTE = 20
 //console.log(Etudiant.allEtudiants())
 
 let filterBySettings = {
-    'column' : 'id',
+    'column' : 'age',
     'desc' :true
 }
 
@@ -40,7 +40,7 @@ const displayEtudiants = async function() {
                 <tr>
                     <td>${id}</td>
                     <td>${etudiant.name}</td>
-                    <td>${etudiant.getAge()} Ans</td>
+                    <td>${etudiant.getAge()}</td>
                     <td><span class="${etudiant.isAdmitted() ? 'bg-green-500' : 'bg-red-500'} text-white px-2 py-1 rounded-xl">${(etudiant.note.length > 2 ) ? etudiant.note : etudiant.note}/${Etudiant.MAX_NOTE}</span></td>
                     <td><button class="delete my-1 bg-red-600 text-white px-1 py-0.5 rounded-lg shadow hover:bg-red-500 active:scale-95 transition-all" data-id="${id}" >Supprimer</button></td>
                 </tr>
