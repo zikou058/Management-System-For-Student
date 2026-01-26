@@ -2,7 +2,6 @@ import Etudiant from "./etudiants.js";
 
 Etudiant.MAX_NOTE = 20
 
-//console.log(Etudiant.allEtudiants())
 let isLoad = true;
 
 let filterBySettings = {
